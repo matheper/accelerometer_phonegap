@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Acceleration Example</title>
+    <title>Camera Example</title>
     <meta charset="utf-8">
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -16,33 +16,12 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        window.setInterval(function(){ loop();}, 1000);
+        navigator.camera.getPicture(function(){}, function(){});
     }
-
-
-    function loop(){
-        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-    }
-
-    // onSuccess: Get a snapshot of the current acceleration
-    //
-    function onSuccess(acceleration) {
-        $('#acceleration').html('Acceleration X: ' + acceleration.x + '\n' +
-              'Acceleration Y: ' + acceleration.y + '\n' +
-              'Acceleration Z: ' + acceleration.z + '\n' +
-              'Timestamp: '      + acceleration.timestamp + '\n');
-    }
-
-    // onError: Failed to get the acceleration
-    //
-    function onError() {
-        $('#acceleration').html('onError!');
-    }
-
+    
     </script>
   </head>
   <body>
-    <h1>Acelerômetro</h1>
-    <p id="acceleration">Acelerômetro</p>
+    <h1>Camera</h1>
   </body>
 </html>
